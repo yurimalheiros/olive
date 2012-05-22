@@ -6,12 +6,15 @@ class Question(List):
     A question command. It is represented by "aName".
     """
     def eval(self):
-        return knowledgebase.ask(self[0].eval())
+        result = knowledgebase.ask(self[0].eval())
+        print result
+        return result
         
 
 class Premise(List):
     def eval(self):
         result = self[0].eval()
         knowledgebase.add(result)
+        print result
         return result
 

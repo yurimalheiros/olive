@@ -2,89 +2,123 @@
 
 Olive is a controlled language to represent knowledge. It translates a subset of English to first-order logic.
 
+## Program
+
+A olive program is made by premises and questions.
+
+The syntax of a premise is:
+    Expression. (the period is important!)
+
+For example,
+    A and B.
+    Beautiful iff Blue.
+
+The syntax of a questions is:
+    Expression? (the question mark is important!)
+
+For example,
+    A or B?
+    Beautiful iff Red?
+
+To run a program execute: python oliveask.py FILENAME
+
+## Symbols
+
+All symbols in the language starts with a capital letter.
+
+Example:
+    A and B. (A is a symbol, and B is a symbol too)
+    Peter and Stewie. (Peter is a symbol, and Stewie is a symbol too)
+
 ## Operators
 
 ### And
 
 In:
-"A" and "B"
+    A and B.
 
 Out:
-A&B
+    A&B
 
 ### Or
 
 In:
-"A" or "B"
+    A or B.
 
 Out:
-A|B
+    A|B
 
 ### If-Then
 
 In:
-if "A" then "B"
+    if A then B.
 
 Out:
-A->B
+    A->B
 
 ### Iff
 
 In:
-"A" iff "B"
+    A iff B.
 
 Out:
-A<->B
+    A<->B
 
 ## Predicates
 
 ### Is
 
 In:
-"John" is "something"
+    John is Tall
 
 Out:
-something(Joao)
+    Tall(John)
 
 
 ### Transitive verbs
 
 In:
-"John" sees "something"
+    John watches Tv.
 
 Out:
-see(John, something)
+    watches(John, Tv)
+
+In:
+    John goes by Car.
+
+Out:
+    goes_by(John, Car)
 
 ### Intransitive verbs
 
 In:
-"John" disappear
+    John disappeared.
 
 Out:
-disappear(John)
+    disappeared(John)
 
 
 ### Open formula
 
 In:
-He is "something"
+    He is tall.
 
 Out:
-something(x)
+    tall(x)
 
 ## Ask
 
 Use a question mark in the end of the sentence to ask something.
 
 In:
-"Socrates" is "human"
-
-if he is "human" then he is "intelligent"
-
-"Socrates" is "intelligent"?
+    Socrates is Human.
+    if he is Human then he is Intelligent.
+    Socrates is Intelligent?
 
 Out:
-True
+    Human(Socrates)
+    Human(x)->Intelligent(x)
+    True
 
 
 
