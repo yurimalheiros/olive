@@ -3,8 +3,7 @@ from olive import grammar
 from olive import knowledgebase
 
 def eval(line):
-    result = grammar.expression.parse(line)[0].eval()
-    knowledgebase.add(result)
+    result = grammar.program.parse(line)[0].eval()
 
 if __name__ == "__main__":
     user_input = sys.argv[1]

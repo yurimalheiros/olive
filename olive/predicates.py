@@ -14,5 +14,5 @@ class Misc(List):
     def eval(self):
         if len(self) == 2:
             return self[1] + "(" + self[0].eval() + ")"
-        elif len(self) == 3:
-            return self[1] + "(" + self[0].eval() + "," + self[2].eval() + ")"
+        elif len(self) > 2:
+            return '_'.join(self[1:-1]) + "(" + self[0].eval() + "," + self[-1].eval() + ")"

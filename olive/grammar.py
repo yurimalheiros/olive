@@ -4,11 +4,15 @@ import operators
 import predicates
 import command
 
+words_with_space = Delayed()
 expression = Delayed()
+program = Delayed()
 
 # values
-symbol = ~Token('"') & Token('[a-zA-Z]+') & ~Token('"') > values.Symbol
-words_with_space = Token('[a-zA-Z]+')
+#symbol = ~Token('"') & Token('[a-zA-Z]+') & ~Token('"') > values.Symbol
+symbol = Token('[A-Z][a-zA-Z]*') > values.Symbol
+word = Token('[a-z]+')
+words_with_space = word & Star(word)
 undefined_op = Token("he") | Token("she") | Token("someone") > values.Undefined
 
 # operators
@@ -22,15 +26,16 @@ or_expression = symbol & ~or_op & expression > operators.Or
 iff_expression = symbol & ~iff_op & expression > operators.Iff
 if_expression = ~if_op & expression & ~then_op & expression > operators.If
 
-# command
-question_op = Token('question:')
-questionmark_op = Token('\\?')
-question_command = ~question_op & expression & ~questionmark_op > command.Question
-
 # predicates
 is_op = Token('is')
 is_predicate = (symbol|undefined_op) & ~is_op & symbol > predicates.Is
 misc_predicate = (symbol|undefined_op) & words_with_space & Optional(symbol) > predicates.Misc
 predicate = is_predicate | misc_predicate
-expression += and_expression | or_expression | iff_expression | if_expression | predicate | symbol | question_command
 
+# command
+questionmark_op = Token('\\?')
+question = expression & ~questionmark_op > command.Question
+premise = expression & ~Token('\\.') > command.Premise
+
+expression += and_expression | or_expression | iff_expression | if_expression | predicate | symbol
+program += premise | question

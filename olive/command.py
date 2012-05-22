@@ -8,3 +8,10 @@ class Question(List):
     def eval(self):
         return knowledgebase.ask(self[0].eval())
         
+
+class Premise(List):
+    def eval(self):
+        result = self[0].eval()
+        knowledgebase.add(result)
+        return result
+
