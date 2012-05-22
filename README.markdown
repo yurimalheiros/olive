@@ -135,14 +135,14 @@ Use a question mark in the end of the sentence to ask something.
 
 In:
     
-    Socrates is Human.
-    if he is Human then he is Intelligent.
-    Socrates is Intelligent?
+    Socrates is human.
+    if he is human then he is hntelligent.
+    Socrates is hntelligent?
 
 Out:
     
-    Human(Socrates)
-    Human(x)->Intelligent(x)
+    human(Socrates)
+    human(x)->intelligent(x)
     True
 
 
