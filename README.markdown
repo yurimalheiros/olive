@@ -7,16 +7,20 @@ Olive is a controlled language to represent knowledge. It translates a subset of
 A olive program is made by premises and questions.
 
 The syntax of a premise is:
+    
     Expression. (the period is important!)
 
 For example,
+    
     A and B.
     Beautiful iff Blue.
 
 The syntax of a questions is:
+    
     Expression? (the question mark is important!)
 
 For example,
+    
     A or B?
     Beautiful iff Red?
 
@@ -27,6 +31,7 @@ To run a program execute: python oliveask.py FILENAME
 All symbols in the language starts with a capital letter.
 
 Example:
+    
     A and B. (A is a symbol, and B is a symbol too)
     Peter and Stewie. (Peter is a symbol, and Stewie is a symbol too)
 
@@ -35,33 +40,41 @@ Example:
 ### And
 
 In:
+    
     A and B.
 
 Out:
+    
     A&B
 
 ### Or
 
 In:
+    
     A or B.
 
 Out:
+    
     A|B
 
 ### If-Then
 
 In:
+    
     if A then B.
 
 Out:
+    
     A->B
 
 ### Iff
 
 In:
+    
     A iff B.
 
 Out:
+    
     A<->B
 
 ## Predicates
@@ -69,41 +82,51 @@ Out:
 ### Is
 
 In:
+    
     John is Tall
 
 Out:
+    
     Tall(John)
 
 
 ### Transitive verbs
 
 In:
+    
     John watches Tv.
 
 Out:
+    
     watches(John, Tv)
 
 In:
+    
     John goes by Car.
 
 Out:
+    
     goes_by(John, Car)
 
 ### Intransitive verbs
 
 In:
+    
     John disappeared.
 
 Out:
+    
     disappeared(John)
 
 
 ### Open formula
 
 In:
+    
     He is tall.
 
 Out:
+    
     tall(x)
 
 ## Ask
@@ -111,11 +134,13 @@ Out:
 Use a question mark in the end of the sentence to ask something.
 
 In:
+    
     Socrates is Human.
     if he is Human then he is Intelligent.
     Socrates is Intelligent?
 
 Out:
+    
     Human(Socrates)
     Human(x)->Intelligent(x)
     True
