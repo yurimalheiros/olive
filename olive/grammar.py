@@ -28,7 +28,7 @@ if_expression = ~if_op & expression & ~then_op & expression > operators.If
 
 # predicates
 is_op = Token('is')
-is_predicate = (symbol|undefined_op) & ~is_op & symbol > predicates.Is
+is_predicate = (symbol|undefined_op) & ~is_op & word > predicates.Is
 misc_predicate = (symbol|undefined_op) & words_with_space & Optional(symbol) > predicates.Misc
 predicate = is_predicate | misc_predicate
 

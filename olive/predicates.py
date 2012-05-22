@@ -5,7 +5,7 @@ class Is(List):
     Is predicate. It is represented by: $value is $symbol.
     """
     def eval(self):
-        return self[1].eval() + "(" + self[0].eval() + ")"
+        return self[1] + "(" + self[0].eval() + ")"
 
 class Misc(List):
     """

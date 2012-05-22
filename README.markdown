@@ -83,11 +83,11 @@ Out:
 
 In:
     
-    John is Tall
+    John is tall
 
 Out:
     
-    Tall(John)
+    tall(John)
 
 
 ### Transitive verbs
@@ -144,6 +144,5 @@ Out:
     Human(Socrates)
     Human(x)->Intelligent(x)
     True
-
 
 

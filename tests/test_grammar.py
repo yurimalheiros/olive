@@ -19,10 +19,10 @@ def test_or_and_op():
     assert grammar.program.parse('A or B and C.')[0].eval() == "A|B&C"
 
 def test_is_predicate():
-    assert grammar.program.parse('A is B.')[0].eval() == "B(A)"
+    assert grammar.program.parse('A is tall.')[0].eval() == "tall(A)"
 
 def test_is_predicate_undefined_op():
-    assert grammar.program.parse('someone is B.')[0].eval() == "B(x)"
+    assert grammar.program.parse('someone is tall.')[0].eval() == "tall(x)"
 
 def test_misc_predicate_transitive():
     assert grammar.program.parse('A bring B.')[0].eval() == "bring(A,B)"
