@@ -136,8 +136,8 @@ Use a question mark in the end of the sentence to ask something.
 In:
     
     Socrates is human.
-    if he is human then he is hntelligent.
-    Socrates is hntelligent?
+    if he is human then he is intelligent.
+    Socrates is intelligent?
 
 Out:
     
